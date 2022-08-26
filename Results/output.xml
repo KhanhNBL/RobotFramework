@@ -1,33 +1,81 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 5.0.1 (Python 3.10.6 on darwin)" generated="20220825 11:20:54.106" rpa="false" schemaversion="3">
-<suite id="s1" name="UdemySearch" source="/Users/vysleepnhuheo/Desktop/RobotFramework/Tests/UdemyCheck/FunctionalTestSuite/UdemySearch.robot">
-<test id="s1-t1" name="This is a sample test case" line="10">
+<robot generator="Robot 5.0.1 (Python 3.10.6 on darwin)" generated="20220826 17:47:59.496" rpa="false" schemaversion="3">
+<suite id="s1" name="AmazonSearchResult" source="/Users/vysleepnhuheo/Desktop/RobotFramework/Tests/AmazonCheck/FunctionalTestSuite/AmazonSearchResult.robot">
+<test id="s1-t1" name="Verify basic search functionality for Amazon" line="12">
+<kw name="Start Testcase" library="CommonFunctionality" type="SETUP">
 <kw name="Open Browser" library="SeleniumLibrary">
-<arg>https://www.udemy.com</arg>
+<arg>https://www.amazon.com/</arg>
 <arg>chrome</arg>
 <doc>Opens a new browser instance to the optional ``url``.</doc>
-<msg timestamp="20220825 11:20:54.451" level="INFO">Opening browser 'chrome' to base url 'https://www.udemy.com'.</msg>
-<status status="PASS" starttime="20220825 11:20:54.450" endtime="20220825 11:21:00.328"/>
+<msg timestamp="20220826 17:47:59.795" level="INFO">Opening browser 'chrome' to base url 'https://www.amazon.com/'.</msg>
+<status status="PASS" starttime="20220826 17:47:59.794" endtime="20220826 17:48:05.596"/>
 </kw>
+<status status="PASS" starttime="20220826 17:47:59.794" endtime="20220826 17:48:05.597"/>
+</kw>
+<kw name="Start Testcase" library="CommonFunctionality">
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>https://www.amazon.com/</arg>
+<arg>chrome</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20220826 17:48:05.599" level="INFO">Opening browser 'chrome' to base url 'https://www.amazon.com/'.</msg>
+<status status="PASS" starttime="20220826 17:48:05.598" endtime="20220826 17:48:11.070"/>
+</kw>
+<status status="PASS" starttime="20220826 17:48:05.597" endtime="20220826 17:48:11.071"/>
+</kw>
+<kw name="Verify Search Results" library="AmazonSearch">
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>xpath://*[@id="twotabsearchtextbox"]</arg>
+<arg>${search_text}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20220826 17:48:11.072" level="INFO">Typing text 'mobile' into text field 'xpath://*[@id="twotabsearchtextbox"]'.</msg>
+<status status="PASS" starttime="20220826 17:48:11.072" endtime="20220826 17:48:11.540"/>
+</kw>
+<kw name="Press Keys" library="SeleniumLibrary">
+<arg>xpath://*[@id="nav-search-submit-button"]</arg>
+<arg>[return]</arg>
+<doc>Simulates the user pressing key(s) to an element or on the active browser.</doc>
+<msg timestamp="20220826 17:48:11.541" level="INFO">Sending key(s) ('[return]',) to xpath://*[@id="nav-search-submit-button"] element.</msg>
+<msg timestamp="20220826 17:48:15.787" level="INFO">Sending keys [return]</msg>
+<status status="PASS" starttime="20220826 17:48:11.540" endtime="20220826 17:48:15.833"/>
+</kw>
+<kw name="Page Should Contain" library="SeleniumLibrary">
+<arg>RESULTS</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<msg timestamp="20220826 17:48:15.871" level="INFO">Current page contains text 'RESULTS'.</msg>
+<status status="PASS" starttime="20220826 17:48:15.833" endtime="20220826 17:48:15.871"/>
+</kw>
+<status status="PASS" starttime="20220826 17:48:11.071" endtime="20220826 17:48:15.871"/>
+</kw>
+<kw name="Finish Testcase" library="CommonFunctionality">
 <kw name="Close Browser" library="SeleniumLibrary">
 <doc>Closes the current browser.</doc>
-<status status="PASS" starttime="20220825 11:21:00.329" endtime="20220825 11:21:00.508"/>
+<status status="PASS" starttime="20220826 17:48:15.871" endtime="20220826 17:48:16.281"/>
 </kw>
-<doc>Udemy test</doc>
-<tag>regression</tag>
-<status status="PASS" starttime="20220825 11:20:54.447" endtime="20220825 11:21:00.509"/>
+<status status="PASS" starttime="20220826 17:48:15.871" endtime="20220826 17:48:16.282"/>
+</kw>
+<kw name="Finish Testcase" library="CommonFunctionality" type="TEARDOWN">
+<kw name="Close Browser" library="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20220826 17:48:16.283" endtime="20220826 17:48:16.283"/>
+</kw>
+<status status="PASS" starttime="20220826 17:48:16.282" endtime="20220826 17:48:16.283"/>
+</kw>
+<doc>Amazon search test</doc>
+<tag>Functional</tag>
+<status status="PASS" starttime="20220826 17:47:59.793" endtime="20220826 17:48:16.283"/>
 </test>
-<status status="PASS" starttime="20220825 11:20:54.109" endtime="20220825 11:21:00.511"/>
+<doc>Basic Search Functionality</doc>
+<status status="PASS" starttime="20220826 17:47:59.498" endtime="20220826 17:48:16.284"/>
 </suite>
 <statistics>
 <total>
 <stat pass="1" fail="0" skip="0">All Tests</stat>
 </total>
 <tag>
-<stat pass="1" fail="0" skip="0">regression</stat>
+<stat pass="1" fail="0" skip="0">Functional</stat>
 </tag>
 <suite>
-<stat pass="1" fail="0" skip="0" id="s1" name="UdemySearch">UdemySearch</stat>
+<stat pass="1" fail="0" skip="0" id="s1" name="AmazonSearchResult">AmazonSearchResult</stat>
 </suite>
 </statistics>
 <errors>
